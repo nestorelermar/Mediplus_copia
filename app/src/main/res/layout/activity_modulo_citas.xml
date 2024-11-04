@@ -18,8 +18,8 @@
         android:layout_width="match_parent">
 
         <fragment
-            android:id="@+id/myFragmentContainer"
-            android:name="com.example.mediplus.BarTop"
+            android:id="@+id/fragment_container"
+            android:name="com.example.mediplus.BarTopReturn"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
 
@@ -33,13 +33,20 @@
         app:layout_constraintTop_toBottomOf="@id/top_layout"
         app:layout_constraintBottom_toTopOf="@id/barra_navegacion">
 
-        <ScrollView
+        <!--<ScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent">-->
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintTop_toBottomOf="@id/top_layout"
+            app:layout_constraintBottom_toTopOf="@id/barra_navegacion"
+            android:fillViewport="true">
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:orientation="vertical"
                 android:gravity="center_horizontal">
 
@@ -65,7 +72,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
-                    android:gravity="center_horizontal">
+                    android:layout_marginBottom="12dp">
 
                     <TextView
                         android:id="@+id/textView120"
@@ -77,37 +84,62 @@
 
                 <!-- Imagen de píldora -->
                 <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="144dp"
-                    android:gravity="center_horizontal">
+                    android:id="@+id/sinDatosView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:visibility="visible"><!--AQUI-->
 
-                    <ImageView
-                        android:id="@+id/logo_calendario"
+                    <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/icono_calendario_modulo"/>
+                        android:translationY="-50dp"
+                        android:gravity="center">
+
+                        <ImageView
+                            android:id="@+id/logo_pildora"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/icono_calendario_modulo"/>
+                    </LinearLayout>
+
+                    <!-- Mensaje de no recordatorios -->
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:translationY="-20dp"
+                        android:gravity="center_horizontal">
+
+                        <TextView
+                            android:id="@+id/textViewNoRecordatorios"
+                            android:layout_width="270dp"
+                            android:textColor="#797777"
+                            android:layout_height="wrap_content"
+                            android:text="No hay recordatorios de citas medicas actuales."
+                            android:textStyle="bold"
+                            android:gravity="center_horizontal"/>
+                    </LinearLayout>
+
                 </LinearLayout>
 
-                <!-- Mensaje de no recordatorios -->
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:gravity="center_horizontal">
+                    android:orientation="vertical"
+                    android:layout_marginBottom="48dp"
+                    android:gravity="center">
 
-                    <TextView
-                        android:id="@+id/textViewNoRecordatorios1"
-                        android:layout_width="270dp"
-                        android:textColor="#797777"
+                    <!-- RecyclerView para la lista de medicamentos -->
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/medicamentosRecyclerView"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="No hay recordatorios de citas medicas actuales."
-                        android:textStyle="bold"
-                        android:gravity="center_horizontal"/>
-                </LinearLayout>
+                        android:visibility="gone"/><!--AQUI-->
 
+                </LinearLayout>
             </LinearLayout>
-        </ScrollView>
+        </androidx.core.widget.NestedScrollView>
 
         <!-- Botón flotante para crear en la esquina inferior derecha -->
         <!--<com.google.android.material.button.MaterialButton
@@ -127,7 +159,7 @@
             app:cornerRadius="50dp"/>-->
 
         <LinearLayout
-            android:id="@+id/btnCrear"
+            android:id="@+id/bottonCrearRecordatorioCita"
             style="@style/Style_button_float"
             android:layout_margin="16dp"
             android:layout_gravity="bottom|end">

@@ -35,7 +35,7 @@ class HistorialModuloMedicamentos : AppCompatActivity() {
         val usuarioLogeado = sharedPreferences.getString("usuarioLogeado", "")
 
         // Crear una nueva instancia del fragmento
-        val fragment = BarTop().apply {
+        val fragment = BarTopReturn().apply {
             arguments = Bundle().apply {
                 putString("usuarioLogeado", usuarioLogeado) // Pasa el usuario logueado como argumento
             }

@@ -15,24 +15,18 @@ class ModuloCitas : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_modulo_citas)
 
-        // Agregar el fragmento a la actividad
-        /*val fragment = BarTop()
-        supportFragmentManager.beginTransaction()
-            .replace(R.id.myFragmentContainer, fragment)
-            .commit()*/
-
         // Codigo de TopBar
         val sharedPreferences = getSharedPreferences("AppPrefs", MODE_PRIVATE)
         val usuarioLogeado = sharedPreferences.getString("usuarioLogeado", "")
 
         // Crear una nueva instancia del fragmento
-        val fragment = BarTop().apply {
+        val fragment = BarTopReturn().apply {
             arguments = Bundle().apply {
                 putString("usuarioLogeado", usuarioLogeado) // Pasa el usuario logueado como argumento
             }
         }
         supportFragmentManager.beginTransaction()
-            .replace(R.id.myFragmentContainer, fragment)
+            .replace(R.id.fragment_container, fragment)
             .commit()
         /**/
     }

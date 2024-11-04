@@ -118,8 +118,8 @@
         android:layout_width="match_parent">
 
         <fragment
-            android:id="@+id/myFragmentContainer"
-            android:name="com.example.mediplus.BarTop"
+            android:id="@+id/fragment_container"
+            android:name="com.example.mediplus.BarTopReturn"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
 
@@ -594,7 +594,7 @@
                                     android:orientation="vertical"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:visibility="visible"><!-- gone -->
+                                    android:visibility="gone"><!-- gone -->
 
                                     <LinearLayout
                                         android:layout_width="match_parent"

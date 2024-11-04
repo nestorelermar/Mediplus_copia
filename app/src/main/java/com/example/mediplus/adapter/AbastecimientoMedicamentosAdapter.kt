@@ -95,14 +95,10 @@ class AbastecimientoMedicamentoAdapter(private val abastecimiento: List<Abasteci
             popupWindow.dismiss()
         }
         popupView.findViewById<TextView>(R.id.archivar_abastecimiento).setOnClickListener {
-            Toast.makeText(context, "Archivar", Toast.LENGTH_SHORT).show()
-            /*val intent = Intent(context, VerInfoModuloGestionSalud::class.java).apply {
-                putExtra("id_usuario", abastecimiento.id_usuario)
-                putExtra("medicamento", abastecimiento.nombre_medicamento)
-                putExtra("fecha_abastecimiento", abastecimiento.fecha_abastecimiento)
-                putExtra("cantidad", abastecimiento.cantidad)
+            //Toast.makeText(context, "Archivar", Toast.LENGTH_SHORT).show()
+            showArchiveConfirmationDialog(context) {
+                archivarAbastecimiento(context, abastecimiento)
             }
-            context.startActivity(intent)*/
             popupWindow.dismiss()
         }
 
@@ -115,6 +111,25 @@ class AbastecimientoMedicamentoAdapter(private val abastecimiento: List<Abasteci
             popupWindow.showAsDropDown(buttonMenu)
         }
 
+    }
+
+    // Ventana Modal de archivar
+    private fun showArchiveConfirmationDialog(context: Context, onConfirm: () -> Unit) {
+        val dialogView = LayoutInflater.from(context).inflate(R.layout.dialog_confirmar_archivar_abastecimiento, null)
+        val dialog = AlertDialog.Builder(context)
+            .setView(dialogView)
+            .create()
+
+        dialogView.findViewById<TextView>(R.id.btn_cancelar_abastecimiento).setOnClickListener {
+            dialog.dismiss()
+        }
+
+        dialogView.findViewById<Button>(R.id.btn_archivar_abastecimiento).setOnClickListener {
+            onConfirm()
+            dialog.dismiss()
+        }
+
+        dialog.show()
     }
 
     // Ventana Modal de eliminar
@@ -156,5 +171,55 @@ class AbastecimientoMedicamentoAdapter(private val abastecimiento: List<Abasteci
                 Toast.makeText(context, "Error al eliminar el abastecimiento: $e", Toast.LENGTH_SHORT).show()
             }
     }
+
+    // Método para archivar un abastecimiento
+    private fun archivarAbastecimiento(context: Context, abastecimiento: AbastecimientoMedicamento) {
+        val db = FirebaseFirestore.getInstance()
+
+        // Crear un mapa con los datos a archivar en Firestore
+        val medicamentoData = hashMapOf(
+            "id_usuario" to abastecimiento.id_usuario,  // Guardar el ID del usuario
+            "medicamento" to abastecimiento.nombre_medicamento,
+            "fecha_abastecimiento" to abastecimiento.fecha_abastecimiento,
+            "cantidad" to abastecimiento.cantidad
+        )
+
+        // Registrar el documento del medicamento en Firestore
+        db.collection("archivar_abastecimiento")
+            .add(medicamentoData)  // Usa .add para generar un ID único automáticamente
+            .addOnSuccessListener { documentReference ->
+                //Toast.makeText(context, "Medicamento archivado con éxito: ${documentReference.id}", Toast.LENGTH_SHORT).show()
+
+                // Eliminar el documento de la colección 'abastecimiento_medicamentos'
+                eliminarMedicamentoDeToma(abastecimiento.id_usuario)
+                redirectToConfirmation(context)
+            }
+            .addOnFailureListener { e ->
+                Toast.makeText(context, "Error al archivar medicamento: ${e.message}", Toast.LENGTH_SHORT).show()
+            }
+    }
+
+    // Método para eliminar un medicamento de la colección 'abastecimiento_medicamentos'
+    private fun eliminarMedicamentoDeToma(medicamentoId: String) {
+        val db = FirebaseFirestore.getInstance()
+
+        // Referencia al documento que se va a eliminar en la colección 'abastecimiento_medicamentos'
+        val documentoRef = db.collection("abastecimiento_medicamentos").document(medicamentoId)
+
+        documentoRef.delete()
+            .addOnSuccessListener {
+                // Mensaje de éxito al eliminar
+                // No es necesario hacer nada aquí, ya que lo manejamos en archivarAbastecimiento
+            }
+            .addOnFailureListener { e ->
+                //Toast.makeText(context, "Error al eliminar medicamento: ${e.message}", Toast.LENGTH_SHORT).show()
+            }
+    }
+
+    // Método para redirigir a la actividad de confirmación
+    private fun redirectToConfirmation(context: Context) {
+        context.startActivity(Intent(context, ConfirmacionArchivoAbastecimientoMedicamento::class.java))
+    }
+
 
 }
