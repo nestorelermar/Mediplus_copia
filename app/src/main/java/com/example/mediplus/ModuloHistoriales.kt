@@ -32,6 +32,12 @@ class ModuloHistoriales : AppCompatActivity() {
             .commit()
         /**/
 
+        // Agregar el fragmento de la bottom bar
+        val fragmentBar = BarBottom()
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.fragment_bottom_bar, fragmentBar)
+            .commit()
+
         /**/
         findViewById<MaterialCardView>(R.id.button_historial_medicamentos).setOnClickListener {
             startActivity(Intent(this, HistorialModuloMedicamentos::class.java))
@@ -50,6 +56,10 @@ class ModuloHistoriales : AppCompatActivity() {
         }
 
         findViewById<MaterialCardView>(R.id.button_historial_vida_saludable).setOnClickListener {
+            startActivity(Intent(this, HistorialVidaSaludable::class.java))
+        }
+
+        findViewById<MaterialCardView>(R.id.button_historial_examenes).setOnClickListener {
             startActivity(Intent(this, HistorialVidaSaludable::class.java))
         }
         /**/

@@ -46,6 +46,13 @@ class ModuloAlertaAbastecimiento : AppCompatActivity() {
             .commit()
         /**/
 
+        // Agregar el fragmento de la bottom bar
+        val fragmentBar = BarBottom()
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.fragment_bottom_bar, fragmentBar)
+            .commit()
+        /**/
+
         findViewById<LinearLayout>(R.id.bottonCrearAbastecimiento).setOnClickListener {
             startActivity(Intent(this, CrearModuloAbastecimiento::class.java))
         }

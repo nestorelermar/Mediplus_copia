@@ -55,6 +55,13 @@ class CrearModuloMedicamentos : AppCompatActivity() {
             .commit()
         /**/
 
+        // Agregar el fragmento de la bottom bar
+        val fragmentBar = BarBottom()
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.fragment_bottom_bar, fragmentBar)
+            .commit()
+        /**/
+
         // Inicializar las vistas y configurar los click listeners
         val formPart1 = findViewById<LinearLayout>(R.id.formPart1)
         val formPart2 = findViewById<LinearLayout>(R.id.formPart2)

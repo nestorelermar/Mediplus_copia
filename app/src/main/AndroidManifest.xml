@@ -13,6 +13,40 @@
         android:theme="@style/Theme.Mediplus"
         tools:targetApi="31">
         <activity
+            android:name=".ConfirmacionEliminacionRecordatorioAbastecimiento"
+            android:exported="false" />
+        <activity
+            android:name=".VerInfoModuloAbastecimiento"
+            android:exported="false" />
+        <activity
+            android:name=".FiltrarModuloExamenes"
+            android:exported="false" />
+        <activity
+            android:name=".ConfirmacionEdicionExamen"
+            android:exported="false" />
+        <activity
+            android:name=".ConfirmacionArchivoExamen"
+            android:exported="false" />
+        <activity
+            android:name=".ConfirmacionEliminacionRecordatorioExamen"
+            android:exported="false" />
+        <activity
+            android:name=".VerInfoModuloExamenes"
+            android:exported="false" />
+        <activity
+            android:name=".ConfirmacionRecordatorioExamen"
+            android:exported="false" />
+        <activity
+            android:name=".EditarModuloExamenes"
+            android:exported="false" />
+        <activity
+            android:name=".CrearModuloExamenes"
+            android:exported="false" />
+        <activity
+            android:name=".ModuloExamenes"
+            android:exported="false"
+            android:launchMode="singleTask" />
+        <activity
             android:name=".ConfirmacionArchivoAbastecimientoMedicamento"
             android:exported="false" />
         <activity
@@ -118,11 +152,6 @@
             android:name=".ConfirmacionUsuarioActualizado"
             android:exported="false" />
         <activity
-            android:name=".navigation_drawer"
-            android:exported="false"
-            android:label="@string/title_activity_navigation_drawer"
-            android:theme="@style/Theme.Mediplus.NoActionBar" />
-        <activity
             android:name=".ConfirmacionUsuarioCreado"
             android:exported="false"
             android:theme="@style/color_barra" />
@@ -130,9 +159,6 @@
             android:name=".EditarModuloMedicamentos"
             android:exported="false"
             android:windowSoftInputMode="adjustPan" />
-        <activity
-            android:name=".ListarModuloMedicamentos"
-            android:exported="false" />
         <activity
             android:name=".VerInfoModuloMedicamentos"
             android:exported="false" />
@@ -173,7 +199,8 @@
             android:theme="@style/color_barra" />
         <activity
             android:name=".MainActivity"
-            android:exported="true" />
+            android:exported="true"
+            android:launchMode="singleTask"/>
     </application>
 
 </manifest>

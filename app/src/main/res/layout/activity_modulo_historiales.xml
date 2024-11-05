@@ -348,12 +348,65 @@
                         </LinearLayout>
                     </LinearLayout>
                 </com.google.android.material.card.MaterialCardView>
+                <com.google.android.material.card.MaterialCardView android:layout_width="350dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center|top"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="12dp"
+                    app:cardCornerRadius="10dp"
+                    app:cardElevation="5dp"
+                    android:id="@+id/button_historial_examenes">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="76dp"
+                        android:background="@drawable/custom_shadow"
+                        android:orientation="horizontal"
+                        android:padding="9dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <ImageView
+                                android:layout_width="36dp"
+                                android:layout_height="36dp"
+                                android:layout_marginStart="4dp"
+                                android:layout_marginEnd="3dp"
+                                android:layout_gravity="center_vertical"
+                                android:src="@drawable/icono_examenes" />
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="10dp"
+                                android:layout_weight="1"
+                                android:orientation="vertical"
+                                android:layout_gravity="center_vertical">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Examenes"
+                                    android:textStyle="bold"
+                                    android:textSize="14sp" />
+
+                            </LinearLayout>
+                            <ImageView
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:layout_marginEnd="12dp"
+                                android:layout_gravity="center_vertical"
+                                android:src="@drawable/icono_ir" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
             </LinearLayout>
         </ScrollView>
     </FrameLayout>
 
     <!-- Bottom navigation bar, outside of the ScrollView -->
-    <com.google.android.material.bottomnavigation.BottomNavigationView
+    <!--<com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/barra_navegacion"
         android:layout_width="match_parent"
         android:layout_height="80dp"
@@ -364,6 +417,22 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:menu="@menu/bottom_nav_menu"/>
+        app:menu="@menu/bottom_nav_menu"/>-->
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/barra_navegacion"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_width="match_parent">
+
+        <fragment
+            android:id="@+id/fragment_bottom_bar"
+            android:name="com.example.mediplus.BarBottom"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

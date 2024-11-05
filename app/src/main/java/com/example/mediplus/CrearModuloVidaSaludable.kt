@@ -47,6 +47,14 @@ class CrearModuloVidaSaludable : AppCompatActivity() {
             .commit()
         /**/
 
+        // Agregar el fragmento de la bottom bar
+        val fragmentBar = BarBottom()
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.fragment_bottom_bar, fragmentBar)
+            .commit()
+
+        /**/
+
         // Accion para el select de bienestar
         val seleccioneActividad: MaterialAutoCompleteTextView = findViewById(R.id.txtActividad)
 

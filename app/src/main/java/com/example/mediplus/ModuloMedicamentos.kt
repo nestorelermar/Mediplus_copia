@@ -4,7 +4,6 @@ import Medicamento
 import MedicamentoAdapter
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.LinearLayout
 import android.widget.Toast
@@ -52,7 +51,12 @@ class ModuloMedicamentos : AppCompatActivity() {
             .replace(R.id.fragment_container, fragment)
             .commit()
         /**/
-
+        // Agregar el fragmento de la bottom bar
+        val fragmentBar = BarBottom()
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.fragment_bottom_bar, fragmentBar)
+            .commit()
+        /**/
 
         // Inicializa las vistas
         medicamentosRecyclerView = findViewById(R.id.medicamentosRecyclerView)

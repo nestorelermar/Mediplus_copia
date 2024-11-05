@@ -48,6 +48,14 @@ class EditarModuloVidaSaludable : AppCompatActivity() {
             .commit()
         /**/
 
+        // Agregar el fragmento de la bottom bar
+        val fragmentBar = BarBottom()
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.fragment_bottom_bar, fragmentBar)
+            .commit()
+
+        /**/
+
         // Obtener los datos del Intent
         val id_usuario = intent.getStringExtra("id_usuario")
         val actividad = intent.getStringExtra("actividad")

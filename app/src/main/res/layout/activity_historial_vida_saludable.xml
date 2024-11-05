@@ -293,7 +293,7 @@
 
 
     <!-- Bottom navigation bar, outside of the ScrollView -->
-    <com.google.android.material.bottomnavigation.BottomNavigationView
+    <!--<com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/barra_navegacion"
         android:layout_width="match_parent"
         android:layout_height="80dp"
@@ -304,6 +304,22 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:menu="@menu/bottom_nav_menu"/>
+        app:menu="@menu/bottom_nav_menu"/>-->
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/barra_navegacion"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_width="match_parent">
+
+        <fragment
+            android:id="@+id/fragment_bottom_bar"
+            android:name="com.example.mediplus.BarBottom"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

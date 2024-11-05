@@ -108,20 +108,15 @@ class MainActivity : AppCompatActivity() {
         val recordatorioExamenes = findViewById<CardView>(R.id.recordatorioExamenes)
 
         recordatorioExamenes.setOnClickListener {
-                //val modulo_examenes = Intent(this, navigation_drawer::class.java)
-                //val modulo_anotaciones = Intent(this, EditarModuloMedicamentos::class.java)
-                //startActivity(modulo_examenes)
-            //val modulo_examenes = Intent(this, ModuloHistoriales::class.java) este si
-            //startActivity(modulo_examenes)
-            startActivity(Intent(this, ModuloAlertaAbastecimiento::class.java))
+            startActivity(Intent(this, ModuloExamenes::class.java))
         }
 
 
-        // Agregar el fragmento a la actividad sin parametros
-        /*val fragment = BarTop() // No necesitas pasarle argumentos
+        // Agregar el fragmento de la bottom bar
+        val fragment = BarBottom()
         supportFragmentManager.beginTransaction()
-            .replace(R.id.myFragmentContainer, fragment)
-            .commit()*/
+            .replace(R.id.fragment_bottom_bar, fragment)
+            .commit()
 
 
         //llamarTopBar()
@@ -151,7 +146,7 @@ class MainActivity : AppCompatActivity() {
                     startActivity(Intent(this, ModuloVidaSaludable::class.java))
                 }
                 R.id.examenesMenu -> {
-                    Toast.makeText(this, "Examenes todavia no esta implementada", Toast.LENGTH_SHORT).show()
+                    startActivity(Intent(this, ModuloExamenes::class.java))
                 }
                 R.id.historialesMenu -> {
                     startActivity(Intent(this, ModuloHistoriales::class.java))
@@ -172,6 +167,7 @@ class MainActivity : AppCompatActivity() {
         toolbar.setOnClickListener {
             drawerLayout.openDrawer(GravityCompat.START)
         }
+
 
     }
 

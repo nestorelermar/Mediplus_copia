@@ -39,6 +39,14 @@ class ReabastecerMedicamentos : AppCompatActivity() {
             .commit()
         /**/
 
+        // Agregar el fragmento de la bottom bar
+        val fragmentBar = BarBottom()
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.fragment_bottom_bar, fragmentBar)
+            .commit()
+
+        /**/
+
         // Para el selector de fecha
         editTextDate = findViewById(R.id.txtNuevaFechaAbastecimiento)
 

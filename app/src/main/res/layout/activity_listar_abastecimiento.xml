@@ -164,8 +164,7 @@
                                     <ImageView
                                         android:layout_width="28dp"
                                         android:layout_height="28dp"
-                                        android:src="@drawable/icono_dropdown"
-                                        android:contentDescription="Icono reabastecer" />
+                                        android:src="@drawable/icono_alerta_abastecimiento"/>
                                 </LinearLayout>
                             </com.google.android.material.card.MaterialCardView>
                         </LinearLayout>

@@ -1,19 +1,14 @@
 package com.example.mediplus
 
 import android.app.AlertDialog
-import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.widget.Button
-import android.widget.EditText
 import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import com.google.firebase.firestore.FirebaseFirestore
 
 object Globals {
@@ -151,6 +146,11 @@ class VerInfoModuloMedicamentos : AppCompatActivity() {
             .commit()
         /**/
 
+        // Agregar el fragmento de la bottom bar
+        val fragmentBar = BarBottom()
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.fragment_bottom_bar, fragmentBar)
+            .commit()
     }
 
     // Ventana Modal de eliminar
@@ -269,8 +269,7 @@ class VerInfoModuloMedicamentos : AppCompatActivity() {
 
     // Método para redirigir a la actividad de confirmación
     private fun redirectToConfirmation() {
-        //val confirmar = Intent(this, ConfirmacionArchivoRecordatorioMedicamento::class.java)
         startActivity(Intent(this, ConfirmacionArchivoRecordatorioMedicamento::class.java))
-        finish() // Opcional: Cierra la actividad actual si no quieres volver a ella
+        finish()
     }
 }

@@ -50,6 +50,14 @@ class EditarModuloMedicamentos : AppCompatActivity() {
             .commit()
         /**/
 
+        // Agregar el fragmento de la bottom bar
+        val fragmentBar = BarBottom()
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.fragment_bottom_bar, fragmentBar)
+            .commit()
+
+        /**/
+
         // Obtener los datos del Intent
         val id_usuario = intent.getStringExtra("id_usuario")
         val nombre_medicamento = intent.getStringExtra("nombre_medicamento")
@@ -76,8 +84,7 @@ class EditarModuloMedicamentos : AppCompatActivity() {
         findViewById<TextView>(R.id.seleccionUnidadEditar).text = unidad
 
 
-        // para el select de presentación del medicamento
-        // Encuentra el MaterialAutoCompleteTextView en el layout
+        // Para el select de presentación del medicamento
         val materialAutoCompleteTextView: MaterialAutoCompleteTextView = findViewById(R.id.seleccionMedicamentoEditar)
 
         // Define las opciones del dropdown
@@ -149,7 +156,6 @@ class EditarModuloMedicamentos : AppCompatActivity() {
 
         // Accion del boton Guardar Recordatorio
         findViewById<LinearLayout>(R.id.btnEditarRecordatorio).setOnClickListener {
-            // Supongamos que has pasado el medicamentoId a esta actividad
             if (id_usuario != null) {
                 updateMedicamentoData(id_usuario)
             }else{
