@@ -26,6 +26,28 @@
         <item name="android:layout_width">350dp</item>
         <item name="android:layout_height">120dp</item>
     </style>
+    <style name="Style_input_text_area_notas">
+        <!--<item name="android:background">@drawable/custom_shadow</item>-->
+        <item name="android:textColor">#767272</item>
+        <item name="android:background">#FFFFFF</item>
+        <item name="android:padding">10dp</item>
+        <item name="android:paddingStart">16dp</item>
+        <item name="android:layout_width">350dp</item>
+        <item name="android:layout_height">330dp</item>
+        <item name="android:radius">16dp</item>
+        <item name="android:shadowColor">#626161</item>
+    </style>
+    <style name="Style_input_text_area_notas_ver_info">
+        <!--<item name="android:background">@drawable/custom_shadow</item>-->
+        <item name="android:textColor">#767272</item>
+        <item name="android:background">#FFFFFF</item>
+        <item name="android:padding">0dp</item>
+        <item name="android:paddingStart">0dp</item>
+        <item name="android:layout_width">350dp</item>
+        <item name="android:layout_height">330dp</item>
+        <item name="android:radius">16dp</item>
+        <item name="android:shadowColor">#626161</item>
+    </style>
     <style name="Style_input_custom">
         <item name="android:background">@drawable/border</item>
         <item name="android:textColor">#767272</item>

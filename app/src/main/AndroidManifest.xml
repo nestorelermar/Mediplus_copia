@@ -13,6 +13,56 @@
         android:theme="@style/Theme.Mediplus"
         tools:targetApi="31">
         <activity
+            android:name=".HistorialModuloGestionSalud"
+            android:exported="false" />
+        <activity
+            android:name=".HistorialModuloAbastecimiento"
+            android:exported="false" />
+        <activity
+            android:name=".ConfirmacionEliminacionRecordatorioNotaGeneral"
+            android:exported="false" />
+        <activity
+            android:name=".VerInfoModuloNotasGenerales"
+            android:exported="false" />
+        <activity
+            android:name=".ConfirmacionEdicionRecordatorioNotaGeneral"
+            android:exported="false" />
+        <activity
+            android:name=".EditarModuloNotasGenerales"
+            android:exported="false" />
+        <activity
+            android:name=".ConfirmacionRecordatorioNotasGenerales"
+            android:exported="false" />
+        <activity
+            android:name=".CrearModuloNotasGenerales"
+            android:exported="false" />
+        <activity
+            android:name=".ModuloNotasGenerales"
+            android:exported="false"
+            android:launchMode="singleTask" />
+        <activity
+            android:name=".VerInfoModuloNotasMedicamentos"
+            android:exported="false" />
+        <activity
+            android:name=".ConfirmacionEdicionRecordatorioNotaMedicamento"
+            android:exported="false" />
+        <activity
+            android:name=".EditarModuloNotasMedicamentos"
+            android:exported="false" />
+        <activity
+            android:name=".ConfirmacionEliminacionRecordatorioNotaMedicamento"
+            android:exported="false" />
+        <activity
+            android:name=".ConfirmacionRecordatorioNotasMedicamento"
+            android:exported="false" />
+        <activity
+            android:name=".CrearModuloNotasMedicamentos"
+            android:exported="false" />
+        <activity
+            android:name=".ModuloNotasMedicamentos"
+            android:exported="false"
+            android:launchMode="singleTask" />
+        <activity
             android:name=".ConfirmacionEliminacionRecordatorioAbastecimiento"
             android:exported="false" />
         <activity
@@ -50,9 +100,6 @@
             android:name=".ConfirmacionArchivoAbastecimientoMedicamento"
             android:exported="false" />
         <activity
-            android:name=".ListarAbastecimiento"
-            android:exported="false" />
-        <activity
             android:name=".ConfirmacionAbastecimientoMedicamento"
             android:exported="false" />
         <activity
@@ -86,10 +133,6 @@
         <activity
             android:name=".CrearModuloGestionSalud"
             android:exported="false" />
-        <activity
-            android:name=".ListarGestionSalud"
-            android:exported="false"
-            android:launchMode="singleTask" />
         <activity
             android:name=".ModuloGestionSalud"
             android:exported="false"
@@ -125,10 +168,6 @@
             android:name=".EditarModuloVidaSaludable"
             android:exported="false" />
         <activity
-            android:name=".ListarVidaSaludable"
-            android:exported="false"
-            android:launchMode="singleTask" />
-        <activity
             android:name=".CrearModuloVidaSaludable"
             android:exported="false" />
         <activity
@@ -144,10 +183,6 @@
         <activity
             android:name=".ConfirmacionRecordatorioMedicamento"
             android:exported="false" />
-        <activity
-            android:name=".ListarTomaMedicamentos"
-            android:exported="false"
-            android:launchMode="singleTask" />
         <activity
             android:name=".ConfirmacionUsuarioActualizado"
             android:exported="false" />
@@ -200,7 +235,7 @@
         <activity
             android:name=".MainActivity"
             android:exported="true"
-            android:launchMode="singleTask"/>
+            android:launchMode="singleTask" />
     </application>
 
 </manifest>

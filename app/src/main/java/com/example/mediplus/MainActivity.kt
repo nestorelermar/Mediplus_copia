@@ -81,28 +81,25 @@ class MainActivity : AppCompatActivity() {
         val recordatorioMedicamentos = findViewById<CardView>(R.id.recordatorioMedicamentos)
 
         recordatorioMedicamentos.setOnClickListener {
-            val modulo_medicamentos = Intent(this, ModuloMedicamentos::class.java)
-            startActivity(modulo_medicamentos)
+            startActivity(Intent(this, ModuloMedicamentos::class.java))
         }
 
         val recordatorioCitas = findViewById<CardView>(R.id.recordatorioCitas)
 
         recordatorioCitas.setOnClickListener {
-            val modulo_citas = Intent(this, ModuloCitas::class.java)
-            startActivity(modulo_citas)
+            startActivity(Intent(this, ModuloCitas::class.java))
         }
 
         val recordatorioHidratacion = findViewById<CardView>(R.id.recordatorioHidratacion)
 
         recordatorioHidratacion.setOnClickListener {
-            val modulo_hidratacion = Intent(this, ModuloVidaSaludable::class.java)
-            startActivity(modulo_hidratacion)
+            startActivity(Intent(this, ModuloVidaSaludable::class.java))
         }
 
         val recordatorioAnotaciones = findViewById<CardView>(R.id.recordatorioAnotaciones)
 
         recordatorioAnotaciones.setOnClickListener {
-            startActivity(Intent(this, ModuloGestionSalud::class.java))
+            startActivity(Intent(this, ModuloNotasMedicamentos::class.java))
         }
 
         val recordatorioExamenes = findViewById<CardView>(R.id.recordatorioExamenes)
@@ -152,10 +149,10 @@ class MainActivity : AppCompatActivity() {
                     startActivity(Intent(this, ModuloHistoriales::class.java))
                 }
                 R.id.notasMedicamentosMenu -> {
-                    Toast.makeText(this, "Notas de medicamentos todavia no esta implementada", Toast.LENGTH_SHORT).show()
+                    startActivity(Intent(this, ModuloNotasMedicamentos::class.java))
                 }
                 R.id.otrasNotasMenu -> {
-                    Toast.makeText(this, "Otras notas generales todavia no esta implementada", Toast.LENGTH_SHORT).show()
+                    startActivity(Intent(this, ModuloNotasGenerales::class.java))
                 }
             }
             // Cerrar el drawer después de seleccionar un ítem
@@ -167,7 +164,6 @@ class MainActivity : AppCompatActivity() {
         toolbar.setOnClickListener {
             drawerLayout.openDrawer(GravityCompat.START)
         }
-
 
     }
 

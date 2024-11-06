@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
+import com.example.mediplus.adapter.HistorialGestionSalud
 import com.google.android.material.card.MaterialCardView
 
 class ModuloHistoriales : AppCompatActivity() {
@@ -44,7 +45,7 @@ class ModuloHistoriales : AppCompatActivity() {
         }
 
         findViewById<MaterialCardView>(R.id.button_historial_abastecimiento).setOnClickListener {
-            startActivity(Intent(this, CrearModuloVidaSaludable::class.java))
+            startActivity(Intent(this, HistorialModuloAbastecimiento::class.java))
         }
 
         findViewById<MaterialCardView>(R.id.button_historial_citas_medicas).setOnClickListener {
@@ -52,7 +53,7 @@ class ModuloHistoriales : AppCompatActivity() {
         }
 
         findViewById<MaterialCardView>(R.id.button_historial_gestion_salud).setOnClickListener {
-            startActivity(Intent(this, CrearModuloVidaSaludable::class.java))
+            startActivity(Intent(this, HistorialModuloGestionSalud::class.java))
         }
 
         findViewById<MaterialCardView>(R.id.button_historial_vida_saludable).setOnClickListener {
